@@ -155,3 +155,66 @@ main .main__container .main__section--jobs > ul li button {
 main .main__container .main__section--jobs > ul li button:hover {
     background-color: var(--color-brand-2);
 }
+
+
+main .main__container .main__section--apply-jobs {
+    padding: 2rem 1.5rem 0 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--color-grey-6);
+    border-radius: var(--radius-default);
+    width: 31.438rem;
+    max-width: 100%;
+}
+
+main .main__container .main__section--apply-jobs > h2 {
+    font-size: var(--title-4);
+    color: var(--color-grey-1);
+}
+
+main .main__container .main__section--apply-jobs > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+main .main__container .main__section--apply-jobs > ul li {
+    padding: 2rem 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--title {
+    display: flex;
+    flex-direction: row;
+    gap: 1.625rem;
+}
+
+main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--title h3 {
+    font-size: var(--title-5);
+    color: var(--color-grey-1);
+    line-height: var(--line-height-default);
+}
+
+main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--title button {
+    width: 65px;
+    height: 38px;
+    border: none;
+    border-radius: var(--radius-default);
+    cursor: pointer;
+}
+
+main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--local {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 1.75rem;
+}
+
+main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--local span {
+    font-size: var(--text-3);
+    color: var(--color-grey-2);
+}
