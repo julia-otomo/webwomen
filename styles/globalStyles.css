@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  list-style: none;
 }
 
 img {
@@ -31,6 +32,8 @@ img {
   --text-1:  1.125rem;
   --text-2:  1rem;
   --text-3:  0.875rem;
+
+  --line-height-default: 170%;
 }
 
 body {

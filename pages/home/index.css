@@ -1,1 +1,157 @@
-/* Desenvolva sua estilização aqui... */
+header {
+    height: 49.313rem;
+    background-image: url(/assets/img/header-img.svg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header .header__container {
+   display: flex;
+   flex-direction: column;
+}
+
+header .header__container > h1 {
+    font-size: var(--title-3);
+    color: var(--color-grey-6);
+    margin-bottom: 3.75rem; 
+}
+
+header .header__container > h2 {
+    font-size: var(--title-3);
+    color: var(--color-grey-3);
+    line-height: var(--line-height-default);
+    margin-bottom: 2rem;
+}
+
+header .header__container > p {
+    font-size: var(--title-5);
+    color: var(--color-grey-5);
+    line-height: var(--line-height-default);
+    text-align: justify;
+}
+
+header .header__container .header__container--p {
+    font-weight: 600;
+    margin-top: 2.25rem;
+    margin-bottom: 3.75rem; 
+}
+
+header .header__container > button {
+    font-family: 'Poppins', sans-serif;
+    width: 18.5rem;
+    height: 3rem;
+    border: none;
+    border-radius: var(--radius-default);
+    background-color: var(--color-brand-1);
+    padding: 0.75rem 3.125rem;
+    box-sizing: border-box;
+    font-size: var(--text-2);
+    color: var(--color-grey-6);
+    font-weight: 500;
+}
+
+main {
+    background-color: var(--color-grey-5);
+}
+
+main .main__container {
+    display: flex;
+    flex-direction: column;
+    padding: 2.688rem 0.75rem;
+    box-sizing: border-box;
+    gap: 2.25rem;
+}
+
+main .main__container .main__section--jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+main .main__container .main__section--jobs > h2 {
+    font-size: var(--title-4);
+    color: var(--color-grey-1);
+}
+
+main .main__container .main__section--jobs > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .main__container .main__section--jobs > ul li {
+    width: 51.125rem;
+    max-width: 100%;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background-color: var(--color-grey-6);
+    border: none;
+    border-radius: var(--radius-default);
+}
+
+main .main__container .main__section--jobs > ul li > h3 {
+    font-size: var(--title-4);
+    color: var(--color-grey-1);
+    line-height: var(--line-height-default);
+    margin-bottom: 1.125rem;
+}
+
+main .main__container .main__section--jobs > ul li .jobs__list--local {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 1.75rem;
+}
+
+main .main__container .main__section--jobs > ul li .jobs__list--local > span {
+    font-size: var(--text-3);
+    color: var(--color-grey-2);
+}
+
+main .main__container .main__section--jobs > ul li p {
+    font-size: var(--text-2);
+    color: var(--color-grey-2);
+    text-align: justify;
+    line-height: var(--line-height-default);
+    margin-bottom: 2rem;
+}
+
+main .main__container .main__section--jobs > ul li .jobs__list--type {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+main .main__container .main__section--jobs > ul li .jobs__list--type > span {
+    background-color: var(--color-grey-3);
+    padding: 0.25rem 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--radius-default);
+    color: var(--color-grey-2);
+    font-size: var(--text-3);
+}
+
+main .main__container .main__section--jobs > ul li button {
+    width: 100%;
+    padding: 0.75rem 1.75rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-default);
+    background-color: var(--color-brand-1);
+    font-size: var(--text-2);
+    color: var(--color-grey-6);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+main .main__container .main__section--jobs > ul li button:hover {
+    background-color: var(--color-brand-2);
+}
