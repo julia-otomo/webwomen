@@ -167,6 +167,7 @@ main .main__container .main__section--apply-jobs {
     border-radius: var(--radius-default);
     width: 31.438rem;
     max-width: 100%;
+    min-height: 22.938rem;
 }
 
 main .main__container .main__section--apply-jobs > h2 {
@@ -216,5 +217,10 @@ main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--loca
 
 main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--local span {
     font-size: var(--text-3);
+    color: var(--color-grey-2);
+}
+
+main .main__container .main__section--apply-jobs .apply-jobs-empty {
+    font-size: var(--text-2);
     color: var(--color-grey-2);
 }
