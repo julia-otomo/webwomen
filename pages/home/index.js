@@ -135,6 +135,10 @@ function addAndRemoveJobs () {
     })
 }
 
+function renderCardsApplyJobs () {
+   
+}
+
 renderCardJobsList(jobsData);
 applyJobsContainer();
 addAndRemoveJobs ();
