@@ -81,11 +81,6 @@ function createCardApplyJobsLIst (element) {
     removeJob.classList.add('remove-button');
     removeJob.dataset.id = element.id;
 
-    let buttonImage = document.createElement('img');
-    buttonImage.src = "/assets/img/trash-icon.svg";
-
-    removeJob.append(buttonImage);
-
     applyJobsListTitle.append(title, removeJob);
 
     let applyJobsListLocal = document.createElement('div');
@@ -106,18 +101,12 @@ function createCardApplyJobsLIst (element) {
 }
 
 function applyJobsContainer () {
-    const sectionApplyJobs = document.querySelector('.main__section--apply-jobs');
-    const ulApplyJobs = document.querySelector('#apply-jobs__list');
     let applyJobsArray = getApplyJobsArray()
-    let p = document.createElement('p');
+    let p = document.querySelector('.apply-jobs__p')
     if (applyJobsArray.length === 0) {
         p.classList.add('apply-jobs-empty');
-        p.innerText = 'Você ainda não aplicou para nenhuma vaga';
-        sectionApplyJobs.appendChild(p);
-        console.log('adicionei');
     } else {
-        // sectionApplyJobs.removeChild(p);
-        console.log('entrei');
+        p.classList.remove('apply-jobs-empty')
     }
 }
 
@@ -138,20 +127,25 @@ function addAndRemoveJobs () {
             let applyJobsArray = getApplyJobsArray();
             let buttonId = e.target.dataset.id;
             let jobFound = findJobsById(jobsData, buttonId);
+            let obj1 = {nome: 'sioadioasdj'};
+            let obj2 = {nome: 'sioadioasdj'};
+            console.log(JSON.stringify(obj1) == JSON.stringify(obj2));
             
-            if (!applyJobsArray.includes(jobFound)) {
+            if (!applyJobsArray.find(job => {
+                return job.id == jobFound.id
+            })) {
                 applyJobsArray.push(jobFound);
                 button.innerText = 'Remover candidatura';
                 localStorage.setItem('@Apply-jobs', JSON.stringify(applyJobsArray));
                 renderCardsApplyJobs ();
-                applyJobsContainer ();
+                applyJobsContainer();
             } else {
                 let jobIndex = applyJobsArray.indexOf(jobFound);
                 applyJobsArray.splice(jobIndex, 1);
                 button.innerText = 'Candidatar';
                 localStorage.setItem('@Apply-jobs', JSON.stringify(applyJobsArray));
                 renderCardsApplyJobs ();
-                applyJobsContainer ();
+                applyJobsContainer();
             }
         })
     })
@@ -178,10 +172,13 @@ function removeApplyedJob () {
         button.addEventListener('click', (e) => {
             let applyJobsArray = getApplyJobsArray();
             let buttonId = e.target.dataset.id;
-            console.log(e.target);
             let filteredArray = applyJobsArray.filter(job => job.id != buttonId);
             localStorage.setItem('@Apply-jobs', JSON.stringify(filteredArray));
             renderCardsApplyJobs();
+            let findButton = document.querySelectorAll('.jobs__list--button');
+            let findButtonArray = [...findButton];
+            findButtonArray.find(button => button.dataset.id == buttonId).innerText = 'Candidatar';
+            applyJobsContainer();
         })
     })
 }
