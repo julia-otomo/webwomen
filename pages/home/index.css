@@ -224,3 +224,40 @@ main .main__container .main__section--apply-jobs .apply-jobs-empty {
     font-size: var(--text-2);
     color: var(--color-grey-2);
 }
+
+@media(min-width: 992px) {
+    header .header__container > h2 {
+        font-size: var(--title-2);
+    }
+
+    main .main__container {
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+    }
+
+    main .main__container .main__section--jobs > ul li .jobs__list--types-and-jobs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    main .main__container .main__section--jobs > ul li .jobs__list--types-and-jobs .jobs__list--type {
+        margin-bottom: 0;
+    }
+
+    main .main__container .main__section--jobs > ul li .jobs__list--types-and-jobs > button {
+        width: 14.625rem;
+        height: 2.375rem;
+        padding: 0;
+    }
+
+    main .main__container .main__section--apply-jobs {
+        align-self: flex-start;
+        margin-top: 4.8rem;
+        position: sticky;
+    }
+}

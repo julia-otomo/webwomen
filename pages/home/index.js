@@ -21,6 +21,9 @@ function createCardJobsList (element) {
     let descriptionJob = document.createElement('p');
     descriptionJob.innerText = element.descrition;
 
+    let jobsListTypesAndButton = document.createElement('div');
+    jobsListTypesAndButton.classList.add('jobs__list--types-and-jobs');
+
     let jobsListType = document.createElement('div');
     jobsListType.classList.add('jobs__list--type');
 
@@ -36,9 +39,20 @@ function createCardJobsList (element) {
     let addButton = document.createElement('button');
     addButton.classList.add('jobs__list--button');
     addButton.dataset.id = element.id;
-    addButton.innerText = 'Cadastrar';
 
-    li.append(title, jobsListLocal, descriptionJob, jobsListType, addButton);
+    let applyJobsArray = getApplyJobsArray();
+    
+    if (applyJobsArray.find(job => {
+        return addButton.dataset.id == job.id;
+    })) {
+        addButton.innerText = 'Remover Candidatura';
+    } else {
+        addButton.innerText = 'Cadastrar';
+    }
+
+    jobsListTypesAndButton.append(jobsListType, addButton);
+
+    li.append(title, jobsListLocal, descriptionJob, jobsListTypesAndButton);
 
     return li;
 }
@@ -94,13 +108,17 @@ function createCardApplyJobsLIst (element) {
 function applyJobsContainer () {
     const sectionApplyJobs = document.querySelector('.main__section--apply-jobs');
     const ulApplyJobs = document.querySelector('#apply-jobs__list');
-    if (ulApplyJobs.children.length === 0) {
-        let p = document.createElement('p');
+    let applyJobsArray = getApplyJobsArray()
+    let p = document.createElement('p');
+    if (applyJobsArray.length === 0) {
         p.classList.add('apply-jobs-empty');
         p.innerText = 'Você ainda não aplicou para nenhuma vaga';
-
         sectionApplyJobs.appendChild(p);
-    } 
+        console.log('adicionei');
+    } else {
+        // sectionApplyJobs.removeChild(p);
+        console.log('entrei');
+    }
 }
 
 function getApplyJobsArray() {
@@ -113,11 +131,11 @@ function findJobsById (array, id) {
 }
 
 function addAndRemoveJobs () {
-    let applyJobsArray = getApplyJobsArray();
     let jobsListButtons = document.querySelectorAll('.jobs__list--button');
 
     jobsListButtons.forEach(button => {
         button.addEventListener('click', (e) => {
+            let applyJobsArray = getApplyJobsArray();
             let buttonId = e.target.dataset.id;
             let jobFound = findJobsById(jobsData, buttonId);
             
@@ -125,20 +143,50 @@ function addAndRemoveJobs () {
                 applyJobsArray.push(jobFound);
                 button.innerText = 'Remover candidatura';
                 localStorage.setItem('@Apply-jobs', JSON.stringify(applyJobsArray));
+                renderCardsApplyJobs ();
+                applyJobsContainer ();
             } else {
                 let jobIndex = applyJobsArray.indexOf(jobFound);
                 applyJobsArray.splice(jobIndex, 1);
                 button.innerText = 'Candidatar';
                 localStorage.setItem('@Apply-jobs', JSON.stringify(applyJobsArray));
+                renderCardsApplyJobs ();
+                applyJobsContainer ();
             }
         })
     })
 }
 
 function renderCardsApplyJobs () {
-   
+   let applyJobsList = getApplyJobsArray();
+   let ulApplyJobs = document.querySelector('#apply-jobs__list');
+
+   ulApplyJobs.innerHTML = '';
+
+   applyJobsList.forEach(job => {
+    let cards = createCardApplyJobsLIst(job);
+    ulApplyJobs.append(cards);
+    removeApplyedJob ();
+    applyJobsContainer ();
+   })
+}
+
+function removeApplyedJob () {
+    let removeButtons = document.querySelectorAll('.remove-button');
+    
+    removeButtons.forEach (button => {
+        button.addEventListener('click', (e) => {
+            let applyJobsArray = getApplyJobsArray();
+            let buttonId = e.target.dataset.id;
+            console.log(e.target);
+            let filteredArray = applyJobsArray.filter(job => job.id != buttonId);
+            localStorage.setItem('@Apply-jobs', JSON.stringify(filteredArray));
+            renderCardsApplyJobs();
+        })
+    })
 }
 
 renderCardJobsList(jobsData);
 applyJobsContainer();
 addAndRemoveJobs ();
+renderCardsApplyJobs ();
