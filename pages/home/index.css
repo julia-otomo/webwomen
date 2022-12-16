@@ -207,7 +207,7 @@ main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--titl
 }
 
 main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--title button {
-    width: 65px;
+    width: 66px;
     height: 38px;
     border: none;
     border-radius: var(--radius-default);
