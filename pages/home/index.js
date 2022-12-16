@@ -129,7 +129,6 @@ function addAndRemoveJobs () {
             let jobFound = findJobsById(jobsData, buttonId);
             let obj1 = {nome: 'sioadioasdj'};
             let obj2 = {nome: 'sioadioasdj'};
-            console.log(JSON.stringify(obj1) == JSON.stringify(obj2));
             
             if (!applyJobsArray.find(job => {
                 return job.id == jobFound.id
