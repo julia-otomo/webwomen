@@ -212,7 +212,7 @@ main .main__container .main__section--apply-jobs > ul li .apply-jobs__list--titl
     border: none;
     border-radius: var(--radius-default);
     cursor: pointer;
-    background-image: url(/assets/img/trash-icon.svg);
+    background-image: url("../../assets/img/trash-icon.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
